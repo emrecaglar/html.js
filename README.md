@@ -3,7 +3,7 @@ Javascript, HTML builder
 
 Example
 
-``javascript
+```javascript
 var div = html.Div({
     class: ["content","row"],
     style: {
@@ -19,3 +19,4 @@ var div = html.Div({
 var b = document.getElementsByTagName("body")[0];
 
 b.appendChild(div);
+```
