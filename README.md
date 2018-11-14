@@ -48,3 +48,4 @@ b.appendChild(div);
 b.appendChild(hr);
 b.appendChild(table);
 ```
+![Output](https://imgur.com/a/fTiUoE4)
