@@ -16,7 +16,35 @@ var div = html.Div({
   html.P("Hello From ", html.Strong("HTML Generator"))
 );
 
+var table = html.Table({
+    'border':1
+  },
+  html.THead(
+    html.Tr(
+      html.Th('Id'),
+      html.Th('Name'),
+      html.Th('Programming Language')
+    )
+  ),
+  html.TBody(
+    html.Tr(
+      html.Td(1),
+      html.Td('Hakkı'),
+      html.Td('golang')
+    ),
+    html.Tr(
+      html.Td(2),
+      html.Td('Nafız'),
+      html.Td('javascript')
+    ),
+  )
+);
+
+var hr = html.Hr();
+
 var b = document.getElementsByTagName("body")[0];
 
 b.appendChild(div);
+b.appendChild(hr);
+b.appendChild(table);
 ```
