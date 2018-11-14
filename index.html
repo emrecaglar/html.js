@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="html.js"></script>
+    <title>Document</title>
+
+    <script type="text/javascript">
+      document.addEventListener(
+        "DOMContentLoaded",
+        function() {
+          var div = html.Div(
+            {
+              class: ["content","row"],
+              style: {
+                "background-color": "#DDDD",
+                "width": "100%",
+                "font-size": "14px"
+              },
+              'data-role':'action'
+            },
+            html.P("Hello From ", html.Strong("HTML Generator"))
+          );
+
+          var b = document.getElementsByTagName("body")[0];
+
+          b.appendChild(div);
+        },
+        false
+      );
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
