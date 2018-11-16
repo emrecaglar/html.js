@@ -1,4 +1,5 @@
 var html = (function () {
+    'use strict'
     function getVariableType(variable) {
         if (typeof variable == 'object') {
             if (variable instanceof Function) {
@@ -17,7 +18,7 @@ var html = (function () {
 
     function attributeSetter(attributeType) {
         var attributeHandlers = {
-            'class': function (element, key, value) {
+            'class': function (element, attribute, value) {
                 var type = getVariableType(value);
 
                 if (type == 'array') {
@@ -26,7 +27,7 @@ var html = (function () {
                     element.className = value;
                 }
             },
-            'style': function (element, key, value) {
+            'style': function (element, attribute, value) {
                 var type = getVariableType(value);
 
                 if (type == 'object') {
@@ -39,8 +40,8 @@ var html = (function () {
             }
         };
 
-        return attributeHandlers[attributeType] || function (element, key, value) {
-            element.setAttribute(key, value);
+        return attributeHandlers[attributeType] || function (element, attribute, value) {
+            element.setAttribute(attribute, value);
         }
     }
 
@@ -48,7 +49,7 @@ var html = (function () {
         if (args.length > 0) {
             var type = getVariableType(args[0]);
 
-            if(type == 'object'){
+            if(type == 'object' && type != 'array'){
                 var attributes = args[0];
 
                 for (var key in attributes) {
@@ -64,10 +65,14 @@ var html = (function () {
 
             var startindex = type == 'object' ? 1 : 0;
 
+            args = getVariableType(args[startindex]) == 'array' 
+                            ? args[startindex] 
+                            : args;
+
             for (var i = startindex; i < args.length; i++) {
-                var type = getVariableType(args[i]);
+                var currentType = getVariableType(args[i]);
     
-                switch (type) {
+                switch (currentType) {
                     case 'html':
                         element.appendChild(args[i]);
                         break;
