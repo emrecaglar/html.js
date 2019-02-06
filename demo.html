@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="./html.js"></script>
+  <title>Document</title>
+
+  <script type="text/javascript">
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+        var div = html.Div(
+          {
+            class: ["content", "row"],
+            style: {
+              "background-color": "#DDDD",
+              "width": "100%",
+              "font-size": "14px"
+            },
+            'data-role': 'action',
+            events: {
+              'click': function (element) {
+                alert('tıklandı');
+              }
+            }
+          },
+          html.Paragraph("Hello From ", html.Strong("HTML Generator"))
+        );
+
+        var table = html.Table({
+          'border': 1
+        },
+          html.THead(
+            html.Tr(
+              html.Th('Id'),
+              html.Th('Name'),
+              html.Th('Programming Language')
+            )
+          ),
+          html.TBody(
+            html.Tr(
+              html.Td(1),
+              html.Td('Hakkı'),
+              html.Td('golang')
+            ),
+            html.Tr(
+              html.Td(2),
+              html.Td('Nafız'),
+              html.Td('javascript')
+            ),
+          )
+        );
+
+        var hr = html.Hr();
+
+        var b = document.getElementsByTagName("body")[0];
+
+        b.appendChild(div);
+        b.appendChild(hr);
+        b.appendChild(table);
+      },
+      false
+    );
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
